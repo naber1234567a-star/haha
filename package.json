@@ -1,0 +1,12 @@
+{
+  "name": "roblox-stealer",
+  "version": "1.0.0",
+  "dependencies": {
+    "puppeteer": "^22.15.0",
+    "puppeteer-core": "^22.15.0",
+    "@sparticuz/chromium": "^128.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
